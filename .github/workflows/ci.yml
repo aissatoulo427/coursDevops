@@ -2,7 +2,7 @@ name: Testing githib workflows
 on: push
 jobs:
   init:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: echo 'hello Moussa'
       - run: echo $HOSTNAME
