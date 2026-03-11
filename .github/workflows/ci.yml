@@ -6,6 +6,7 @@
 #    steps:
 #      - run: echo 'hello Moussa'
 #      - run: echo $HOSTNAME
+#////....................................................................
 
 #name: Démonstration CI
 #
@@ -39,6 +40,7 @@
 #
 #      - name: Etape 6 - Fin du pipeline
 #        run: echo "Pipeline terminé avec succès !"
+#///////////////////////////////////////////////////////////////////////////
 
 name: Gestion des variables d'environnement et secrets
 
