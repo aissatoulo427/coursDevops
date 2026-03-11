@@ -1,8 +1,41 @@
-name: Testing githib workflows
-on: push
+#name: Testing githib workflows
+#on: push
+#jobs:
+#  init:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: echo 'hello Moussa'
+#      - run: echo $HOSTNAME
+
+name: Démonstration CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
-  init:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo 'hello Moussa'
-      - run: echo $HOSTNAME
+      - name: Etape 1 - Initialisation
+        run: |
+          echo "Initialisation du pipeline..."
+          java -version
+
+      - name: Etape 2 - Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Etape 3 - Build
+        run: mvn clean compile
+
+      - name: Etape 4 - Tests
+        run: mvn test
+
+      - name: Etape 5 - Packaging
+        run: mvn package -DskipTests
+
+      - name: Etape 6 - Fin du pipeline
+        run: echo "Pipeline terminé avec succès !"
